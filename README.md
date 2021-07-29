@@ -24,6 +24,9 @@ echo $MY_VAR
 echo ${MY_VAR}ddd   # Note, this is example when to use {}
 ```
 
+By default, all variables are global.  
+The `local` key word can be used to make function variables local.  
+
 ## If Else statements
 
 ``` sh
@@ -39,6 +42,17 @@ then
     echo "This will not be printed"
 else
     echo "This will not be printed"
+fi
+```
+
+There are few `test` operators that bash provides.  
+For example, the `-f` checks if file exists.  
+``` sh
+#! /bin/bash
+
+if [ -f $0 ]
+then
+    echo "File $0 exists"
 fi
 ```
 
@@ -102,3 +116,48 @@ else
 fi
 
 ```
+
+## Functions
+
+Note that `return` can be used to return value from function.   
+If no `return` is used, the return value is the return value of the  
+last command in the function.
+
+``` sh
+#! /bin/bash
+
+#Declare hello_world
+function hello_world() {
+    echo "Hello World"
+    return 0
+}
+
+# Call hello_world
+hello_world     
+
+```
+
+Functions can access their parameters via $1, $2, etc.  
+Note that $0 is still the script name.  
+``` sh
+#! /bin/bash
+
+function hello_world_with_params() {
+    echo "Hello World $1 $2 $3"
+}
+
+hello_world_with_params hi hey wow 
+```
+
+Local variables can be declared using the `local` keyword.
+``` sh
+#! /bin/bash
+
+function local_var_func() {
+    local MY_VAR="Hey there"
+}
+
+local_var_func
+```
+
+

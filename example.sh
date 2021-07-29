@@ -19,6 +19,11 @@ else
     echo "This will not be printed"
 fi
 
+if [ -f $0 ]
+then
+    echo "File $0 exists"
+fi
+
 #------------------------------- Loops
 
 FILES=$(ls .)
@@ -53,3 +58,25 @@ then
 else
   echo "$HOST unreachable."
 fi
+
+#------------------------------- Functions
+
+function hello_world() {
+    echo "Hello World"
+
+    return 0
+}
+
+hello_world
+
+function hello_world_with_params() {
+    echo "Hello World $1 $2 $3"
+}
+
+hello_world_with_params hi hey wow 
+
+function local_var_func() {
+    local MY_VAR="Hey there"
+}
+
+local_var_func
