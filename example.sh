@@ -80,3 +80,4 @@ function local_var_func() {
 }
 
 local_var_func
+

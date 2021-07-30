@@ -1,6 +1,13 @@
 # bash-reference
 
-## Shebang
+## Command References
+
+[sed](sed/README.md)
+
+## Bash Quick Reference
+
+---
+### Shebang
 
 Shebang is the '#!' in the beginning of the script.  
 It is used to choose the interpreter that the script will use.  
@@ -11,7 +18,8 @@ If no shebang is specified, the current shell will be used.
 echo "This script is using the bash interpreter."
 ```
 
-## Variables
+---
+### Variables
 
 To access variable's data use the $ operator.  
 The {} is optional.  
@@ -27,7 +35,8 @@ echo ${MY_VAR}ddd   # Note, this is example when to use {}
 By default, all variables are global.  
 The `local` key word can be used to make function variables local.  
 
-## If Else statements
+---
+### If Else statements
 
 ``` sh
 #! /bin/bash
@@ -56,7 +65,8 @@ then
 fi
 ```
 
-## Loops
+---
+### Loops
 
 ``` sh
 #! /bin/bash
@@ -69,7 +79,8 @@ do
 done
 ```
 
-## Positional Parameters
+---
+### Positional Parameters
 
 Each command line param can be accessed with the `$` operator:
 ``` sh
@@ -92,7 +103,8 @@ do
 done
 ```
 
-## Exit Code
+---
+### Exit Code
 
 ``` sh
 #! /bin/bash
@@ -117,7 +129,8 @@ fi
 
 ```
 
-## Functions
+---
+### Functions
 
 Note that `return` can be used to return value from function.   
 If no `return` is used, the return value is the return value of the  
@@ -159,5 +172,14 @@ function local_var_func() {
 
 local_var_func
 ```
+
+---
+### Wildcards
+
+`*`  - Matches zero or more characters.   
+`?`  - Matches exactly one character.    
+`[]`    - Match one character from the characters in `[]`.  
+`[!]`   - Match any character that is not in `[!]`.  
+`[a-z]` - Match character that is in the range of characters.  
 
 
